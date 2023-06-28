@@ -1,0 +1,44 @@
+name: Deploy Cloud Run
+
+inputs:
+  gcp_key:
+    required: true
+  service_name:
+    required: false
+    default: ${{ github.event.repository.name }}
+    description: Name of the service
+  service_project:
+    required: true
+  service_region:
+    required: false
+    default: us-central1
+  service_image:
+    required: true
+  service_tag:
+    required: false
+    default: ${{ github.sha }}
+
+on: [workflow_call]
+
+runs:
+  using: composite
+  steps:
+  - name: Google Auth
+    id: auth
+    uses: 'google-github-actions/auth@v1'
+    with:
+      credentials_json: '${{ inputs.gcp_key }}'
+
+  - name: Deploy to Cloud Run
+    id: deploy
+    uses: google-github-actions/deploy-cloudrun@v1
+    with:
+      project: ${{ inputs.service_project }}
+      service: ${{ inputs.service_image }}
+      region: ${{ inputs.service_region }}
+      # NOTE: If using a pre-built image, update the image name here
+      image: ${{ inputs.service_image }}:${{ inputs.service_tag }}
+
+  # If required, use the Cloud Run url output in later steps
+  - name: Show Output
+    run: echo ${{ steps.deploy.outputs.url }}

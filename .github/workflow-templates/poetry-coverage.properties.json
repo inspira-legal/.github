@@ -1,0 +1,7 @@
+{
+    "name": "Inspira Poetry Coverage",
+    "description": "Install, test and coverage report for Poetry",
+    "categories": ["python", "test", "poetry"],
+    "creator": "Ricardo Verhaeg",
+    "iconName": "octicon beaker"
+}
