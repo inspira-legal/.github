@@ -5,6 +5,6 @@
     "creator": "Ricardo Verhaeg",
     "iconName": "octicon file-binary",
     "filePatterns": [
-        "^Dockerfile",
+        "^Dockerfile"
     ]
 }

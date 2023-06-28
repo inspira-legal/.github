@@ -3,5 +3,8 @@
     "description": "Install, test and coverage report for Poetry",
     "categories": ["python", "test", "poetry"],
     "creator": "Ricardo Verhaeg",
-    "iconName": "octicon beaker"
+    "iconName": "octicon beaker",
+    "filePatterns": [
+        "poetry.lock"
+    ]
 }

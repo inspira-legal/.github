@@ -3,5 +3,8 @@
     "description": "Deploys to GCP Cloud Run based on an image",
     "categories": ["deployment", "docker", "gcp"],
     "creator": "Ricardo Verhaeg",
-    "iconName": "octicon cloud"
+    "iconName": "octicon cloud",
+    "filePatterns": [
+        "^Dockerfile"
+    ]
 }
