@@ -11,9 +11,9 @@ inputs:
 on:
   workflow_call:
   push:
-    branches: [$defaultbranch]
+    branches: [$default-branch]
   pull_request:
-    branches: [$defaultbranch]
+    branches: [$default-branch]
 
 jobs:
   lint-test:
